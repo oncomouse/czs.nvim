@@ -44,15 +44,15 @@ function M.output()
 			searchcount.total > searchcount.maxcount
 			and searchcount.current > searchcount.maxcount
 		then
-			current = vim.fn.printf(">%d", searchcount.current)
-			total = vim.fn.printf(">%d", searchcount.total)
+			current = string.format(">%d", searchcount.current)
+			total = string.format(">%d", searchcount.total)
 		elseif searchcount.total > searchcount.maxcount then
-			current = vim.fn.printf("%d", searchcount.current)
-			total = vim.fn.printf(">%d", searchcount.total)
+			current = string.format("%d", searchcount.current)
+			total = string.format(">%d", searchcount.total)
 		end
 	else
-		current = vim.fn.printf("%d", searchcount.current)
-		total = vim.fn.printf("%d", searchcount.total)
+		current = string.format("%d", searchcount.current)
+		total = string.format("%d", searchcount.total)
 	end
 	return target, current, total
 end
