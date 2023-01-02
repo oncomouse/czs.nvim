@@ -39,7 +39,7 @@ function M.output()
 	if searchcount.incomplete == 1 then -- Timed out
 		current = "?"
 		total = "??"
-	elseif searchcount.incomplete == 2 then -- Max count exceed
+	elseif searchcount.incomplete == 2 then -- Max count exceeded
 		if
 			searchcount.total > searchcount.maxcount
 			and searchcount.current > searchcount.maxcount
