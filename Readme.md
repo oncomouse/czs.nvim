@@ -1,5 +1,7 @@
 # CZS = Cmdheight Zero Search
 
+![Behavior of czs.nvim](https://github.com/oncomouse/czs.nvim/blob/gif/czs.gif?raw=true)
+
 This plugin adds proper search status and monitoring (useful for [`statusline`](https://neovim.io/doc/user/options.html#'statusline') plugins) for [Neovim](https://neovim.io) when using [`cmdheight=0`](https://neovim.io/doc/user/options.html#'cmdheight').
 
 When I say "proper," I mean behaves the way Neovim would display search information with a command line. This includes:
