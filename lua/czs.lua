@@ -68,7 +68,7 @@ local function set_map(move)
 	end)
 end
 
-function M.init()
+function M.setup()
 	set_map("n")
 	set_map("N")
 	-- Recaculate search results when entering a buffer:

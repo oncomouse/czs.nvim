@@ -1,3 +1,3 @@
 if vim.opt.cmdheight:get() == 0 then
-	require("czs").init()
+	require("czs.nvim").setup()
 end
