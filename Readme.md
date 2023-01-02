@@ -4,7 +4,7 @@
 
 This plugin adds proper search status and monitoring (useful for [`statusline`](https://neovim.io/doc/user/options.html#'statusline') plugins) for [Neovim](https://neovim.io) when using [`cmdheight=0`](https://neovim.io/doc/user/options.html#'cmdheight').
 
-When I say "proper," I mean behaves the way Neovim would display search information with a command line. This includes:
+When I say "proper," I mean I mean behaving the way Neovim does when displaying search information with `set cmdheight=1`. This includes:
 
 1. Hiding when leaving normal mode
 2. Only re-displaying after returning to normal when something has changed, such as:
