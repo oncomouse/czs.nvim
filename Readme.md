@@ -36,3 +36,10 @@ local Search = {
 }
 ```
 You could use something similar for any of the other plugins available for Neovim.
+
+## Mappings
+
+This plugin remaps [`n`](https://neovim.io/doc/user/pattern.html#n) and [`N`](https://neovim.io/doc/user/pattern.html#N). If you would prefer that to not happen, set `vim.g.czs_do_not_map = true` somewhere in your Neovim configuration. The bindings necessary for `czs.nvim` are set to [plug-bindings](https://neovim.io/doc/user/map.html#%3CPlug%3E):
+
+* `<Plug>(czs-move-n)`
+* `<Plug>(czs-move-N)`
