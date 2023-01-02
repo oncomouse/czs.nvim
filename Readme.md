@@ -16,8 +16,8 @@ Install `czs.nvim` as you would any other plugin (`use { "oncomouse/czs.nvim" }`
 
 There are two functions provided by `czs.nvim` for displaying search results:
 
-1. `require("czs.nvim").display_results()` -- Will return `true` when search results should display; `false` when not.
-2. `require("czs.nvim").output()` -- Returns three values:
+1. `require("czs").display_results()` -- Will return `true` when search results should display; `false` when not.
+2. `require("czs").output()` -- Returns three values:
     1. `target` -- What the user is searching for
     2. `current` -- Which result is currently selected (will show ">" + `maxcount` if current is too high)
     3. `count` -- How many total results were found (will show ">" + `maxcount` if search returned too many results)
@@ -27,10 +27,10 @@ How you use these functions depends on your [`statusline`](https://neovim.io/doc
 ```lua
 local Search = {
     condition = function()
-        return require("czs.nvim").display_results() 
+        return require("czs").display_results() 
     end,
     provider = function()
-        local target, current, count = require("czs.nvim").output() 
+        local target, current, count = require("czs").output() 
         return string.format("/%s [%s/%s]", target, current, count)
     end,
 }
