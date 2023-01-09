@@ -8,7 +8,7 @@ local last_target = nil
 local searchcount = nil
 
 local function update_searchcount()
-	searchcount = vim.fn.searchcount({ recompute = 1 })
+	searchcount = vim.fn.searchcount()
 end
 
 function M.display_results()
