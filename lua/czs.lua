@@ -8,7 +8,11 @@ local last_target = nil
 local searchcount = nil
 
 local function update_searchcount()
-	searchcount = vim.fn.searchcount()
+	local search_ok
+	search_ok, searchcount = pcall(vim.fn.searchcount, { recalculate = 1 })
+	if not search_ok then
+		searchcount = {}
+	end
 end
 
 function M.display_results()
@@ -22,11 +26,7 @@ function M.display_results()
 	end
 	if not hidden then
 		update_searchcount()
-		if
-			vim.fn.empty(searchcount) == 0
-			and searchcount.total ~= 0
-			and searchcount.current > 0
-		then
+		if vim.fn.empty(searchcount) == 0 and searchcount.total ~= 0 and searchcount.current > 0 then
 			hidden = false
 		else
 			hidden = true
@@ -36,14 +36,11 @@ function M.display_results()
 end
 
 function M.output()
-	if searchcount.incomplete == 1 then -- Timed out
+	if vim.fn.empty(searchcount) == 1 or searchcount.incomplete == 1 then -- Timed out
 		current = "?"
 		total = "??"
 	elseif searchcount.incomplete == 2 then -- Max count exceeded
-		if
-			searchcount.total > searchcount.maxcount
-			and searchcount.current > searchcount.maxcount
-		then
+		if searchcount.total > searchcount.maxcount and searchcount.current > searchcount.maxcount then
 			current = string.format(">%d", searchcount.current)
 			total = string.format(">%d", searchcount.total)
 		elseif searchcount.total > searchcount.maxcount then
